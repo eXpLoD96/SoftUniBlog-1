@@ -92,9 +92,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipment <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">*@
                     <li class="buttonss"> @Html.ActionLink("Fitness Equipment", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </li>
-                    <li class="buttons">@Html.ActionLink("Professional Equipment", "Index", "ProfessionalEquipment")</li>
-                    <li class="buttons">@Html.ActionLink("Semi-Professional Equipment", "Index", "SemiProfessional")</li>
-                    <li class="buttons">@Html.ActionLink("Home Equipment", "Index", "HomeEquipment")</li>
+                    <li class="buttons">@Html.ActionLink("Professional Equipment", "Index", "Equipment", new { category = "Professional"}, null)</li>
+                    <li class="buttons">@Html.ActionLink("Semi-Professional Equipment", "Index", "Equipment", new { category = "SemiProfessional" }, null)</li>
+                    <li class="buttons">@Html.ActionLink("Home Equipment", "Index", "Equipment", new { category = "Home" }, null)</li>
 
 
                     @*</ul>
