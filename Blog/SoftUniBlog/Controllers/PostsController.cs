@@ -32,7 +32,7 @@ namespace SoftUniBlog.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             Post post = db.Posts.Find(id);
             if (post == null)
