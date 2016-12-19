@@ -1,9 +1,11 @@
-﻿@{
+﻿@using SoftUniBlog.Models
+@model List<Equipment>
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Equipment by type " + ViewBag.Type;
 }
 <head>
     <title>Motivation</title>
@@ -16,4 +18,11 @@
         background-position: center;
     }
 </style>
+
+@foreach (var equipment in Model)
+{
+    <li><img src="@equipment.ImagePath" width="300" height="300" /><span>@equipment.Name</span></li>
+}
+
+
 

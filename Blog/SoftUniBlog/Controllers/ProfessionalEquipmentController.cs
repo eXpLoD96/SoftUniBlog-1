@@ -13,7 +13,7 @@ namespace SoftUniBlog.Controllers
         public ActionResult Index()
         {
             var context = new ApplicationDbContext();
-            var equipmentTypes = context.EquipmentTypes.ToList();
+            var equipmentTypes = context.EquipmentTypes.Where(a => a.Category == Category.Professional).ToList();
 
             ViewBag.EquipmentTypes = equipmentTypes;
             return View();
@@ -23,7 +23,7 @@ namespace SoftUniBlog.Controllers
             return View();
         }
 
-        
+
         public ActionResult ByType(string id)
         {
             var context = new ApplicationDbContext();

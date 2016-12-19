@@ -8,68 +8,71 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
-<script type='text/javascript' src='loadImg.js'></script>
-<script type='text/javascript'>
-    $(function(){
-        $('img').imgPreload()
-    })
-</script>
+    <script type='text/javascript' src='loadImg.js'></script>
+    <script type='text/javascript'>
+        $(function () {
+            $('img').imgPreload()
+        })
+    </script>
 
     <style>
-.button {
-  padding: 1px 1px;
-  font-size: 18px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #620a0a;
-  background-color: #620a0a;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0px #999;
-}
-.buttonss {
-  padding: 1px 1px;
-  font-size: 18px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #000000;
-  background-color: #000000;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0px #999;
-}
+        .button {
+            padding: 1px 1px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #620a0a;
+            background-color: #620a0a;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0px #999;
+        }
 
-/*i5ejhrpejoh*/
-.buttons {
-  padding: 1px 1px;
-  font-size: 18px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #620a0a;
-  background-color: #000000;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 2px #999;
-}
+        .buttonss {
+            padding: 1px 1px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #000000;
+            background-color: #000000;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0px #999;
+        }
 
-.button:hover {background-color: #051838; }
+        /*i5ejhrpejoh*/
+        .buttons {
+            padding: 1px 1px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #620a0a;
+            background-color: #000000;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px #999;
+        }
 
-.buttons:active {
-  background-color: #051838;
-  /*box-shadow: 0 5px #666;*/
-  transform: translateY(4px);
-}
-</style>
+        .button:hover {
+            background-color: #051838;
+        }
+
+        .buttons:active {
+            background-color: #051838;
+            /*box-shadow: 0 5px #666;*/
+            transform: translateY(4px);
+        }
+    </style>
 
 </head>
 
 <body>
 
     <div class="se-pre-con"></div>
-    <div class="button navbar-inverse navbar-fixed-top"  style="background-color: black">
+    <div class="button navbar-inverse navbar-fixed-top" style="background-color: black">
         <div class="container-fluid">
             <div class="navbar-inner">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -77,34 +80,44 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-              
+
             </div>
             <div class="navbar-collapse collapse">
 
                 <ul class="nav navbar-nav">
                     <li>
-                        
+
 
                     </li>
 
                     @*<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipment <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">*@
-                    <li class="buttonss"> @Html.ActionLink("Fitness Equipment", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </li>
-                    <li class="buttons">@Html.ActionLink("Professional Equipment", "Index", "ProfessionalEquipment")</li>
-                    <li class="buttons">@Html.ActionLink("Semi-Professional Equipment", "Index", "SemiProfessional")</li>
-                    <li class="buttons">@Html.ActionLink("Home Equipment", "Index", "HomeEquipment")</li>
-                    
-                                        @*</ul>
-            @using (Html.BeginForm("SearchText", "Home Controller", FormMethod.Get))
-        {
-            @Html.TextBoxFor(m => m.Query)
+                    <li class="buttons"> @Html.ActionLink("Fitness Equipment", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </li>
+                    <li class="buttons">@Html.ActionLink("Professional Equipment", "Index", "Equipment", new { category = "Professional" }, null)</li>
+                    <li class="buttons">@Html.ActionLink("Semi-Professional Equipment", "Index", "Equipment", new { category = "SemiProfessional" }, null)</li>
+                    <li class="buttons">@Html.ActionLink("Home Equipment", "Index", "Equipment", new { category = "Home" }, null)</li>
 
-            <div>
-                <input type="submit" value="Search" />
-            </div>
-        }
-            </li>*@
+                    @if (User.IsInRole("Administrators"))
+                    {
+
+
+                        <li>
+                            @Html.ActionLink("Add Equipment", "Create", "Admin")
+                        </li>
+
+                    }
+
+                    @*</ul>
+                            @using (Html.BeginForm("SearchText", "Home Controller", FormMethod.Get))
+                        {
+                            @Html.TextBoxFor(m => m.Query)
+
+                            <div>
+                                <input type="submit" value="Search" />
+                            </div>
+                        }
+                            </li>*@
                     <li class="buttons">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contact us <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -118,13 +131,14 @@
                 </ul>
 
                 @Html.Partial("_LoginPartial")
-               
+
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
+        <p></p>
         <footer id="footer">
             <p>&copy; @DateTime.Now.Year - Flex 07</p>
         </footer>
@@ -140,5 +154,5 @@
 
 </body>
 
-    
+
 </html>

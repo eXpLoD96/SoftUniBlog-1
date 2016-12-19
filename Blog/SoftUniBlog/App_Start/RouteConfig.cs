@@ -18,6 +18,12 @@ namespace SoftUniBlog
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Equipment",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Equipment", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }

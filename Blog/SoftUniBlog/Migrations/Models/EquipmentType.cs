@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 
 namespace SoftUniBlog.Models
@@ -15,6 +16,10 @@ namespace SoftUniBlog.Models
         public string Name { get; set; }
 
         public string ImagePath { get; set; }
+
+        //[ForeignKey("Category")]
+        //public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
         public virtual ICollection<Equipment> Equipments { get; set; }
 

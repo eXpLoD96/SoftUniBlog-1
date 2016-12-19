@@ -6,12 +6,13 @@ using System.Web.Mvc;
 
 namespace SoftUniBlog.Controllers
 {
-    public class FoodAdditivesController : Controller
+    public class AddEquipmentController : Controller
     {
-        // GET: FoodAdditives
+        // GET: AddEquipment
         public ActionResult Index()
         {
             return View();
         }
     }
+
 }
