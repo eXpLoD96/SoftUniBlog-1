@@ -9,7 +9,7 @@
 </head>
 <style>
     body {
-        background-image: url('http://www.careandliving.com/wp-content/uploads/2016/08/muscular-guy-six-pack-HD.jpg');
+        background-image: url('http://www.pixelstalk.net/wp-content/uploads/2016/06/HD-Wallpapers-Gif-Download.gif');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
@@ -17,14 +17,17 @@
 </style>
 
 
+
+
+
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h2 style="color: darkblue">Topic</h2>
+        <h2 style="color: rebeccapurple">Topic</h2>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div style="color: darkblue" class="form-group">
+        <div style="color: rebeccapurple" class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @rows = "10" } })
@@ -32,7 +35,7 @@
             </div>
         </div>
 
-        <div style="color: darkblue"class="form-group">
+        <div style="color: rebeccapurple"class="form-group">
             @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
@@ -44,14 +47,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" style="color: darkblue"/>
+                <input type="submit" value="Create" class="btn btn-default" style="color: rebeccapurple"/>
             </div>
         </div>
     </div>
 
 }
 
-<div style="color: darkblue">
+<div style="color: rebeccapurple">
     @Html.ActionLink("Back to Forum", "Index")
 </div>
 
@@ -60,5 +63,5 @@
 }
 <hr />
 <footer id="footer">
-    <p style="color:darkblue"> &copy; @DateTime.Now.Year - Flex 07</p>
+    <p style="color:rebeccapurple"> &copy; @DateTime.Now.Year - Flex 07</p>
 </footer>

@@ -30,7 +30,7 @@
         }
 
         .buttonss {
-            padding: 1px 1px;
+            padding: 0.8px 0.8px;
             font-size: 18px;
             text-align: center;
             cursor: pointer;
@@ -43,15 +43,15 @@
         }
 
         .buttons {
-            padding: 1px 1px;
-            font-size: 18px;
+            padding: 0.8px 0.8px;
+            font-size: 16.5px;
             text-align: center;
             cursor: pointer;
             outline: none;
             color: #620a0a;
             background-color: #000000;
             border: none;
-            border-radius: 10px;
+            border-radius: 9px;
             box-shadow: 0 2px #999;
         }
 
@@ -117,7 +117,7 @@
                         </ul>
                         @if (User.IsInRole("Administrators"))
                         {
-                        <li>@Html.ActionLink("Add/Delete Equipment", "Index", "Admin")</li>
+                        <li class="buttons">@Html.ActionLink("Equipment", "Index", "Admin")</li>
 
                         }
                     </li>
@@ -131,18 +131,10 @@
                                 <li>@Html.ActionLink("Categories", "List", "Categories")</li>
 
                             </ul>
-                            }
+                            
 
                         </li>
-
-
-
                     }
-
-
-
-                    }
-
                 </ul>
 
                 @Html.Partial("_LoginPartial")
