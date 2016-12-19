@@ -7,6 +7,7 @@
 <head>
     <title>Details</title>
 </head>
+
 <style>
     body {
         background-image: url('http://www.careandliving.com/wp-content/uploads/2016/08/muscular-guy-six-pack-HD.jpg');
@@ -18,9 +19,9 @@
 
 
 <div>
-    <h4>Post</h4>
+    <h2 style="color:darkblue">Post</h2>
     <hr />
-    <dl class="dl-horizontal">
+    <dl style="color:darkblue"class="dl-horizontal">
         <dt>
             Title
         </dt>
@@ -47,8 +48,8 @@
         </dd>
 
     </dl>
-    <div id="disqus_thread"></div>
-    <script>
+    <div style="color:darkblue" id="disqus_thread"></div>
+    <script style="color:darkblue">
 
 
     var disqus_config = function () {
@@ -69,10 +70,14 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 
-<p>
+<p style="color:darkblue">
     @if (ViewBag.IsUserAuthorized)
     {
        @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
     }
     @Html.ActionLink("Back to List", "Index")
 </p>
+<hr />
+<footer id="footer">
+    <p style="color:darkblue"> &copy; @DateTime.Now.Year - Flex 07</p>
+</footer>

@@ -14,14 +14,14 @@
     }
 </style>
 
-<h2>@ViewBag.Title.</h2>
+<h2 style="color: darkblue">@ViewBag.Title.</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Change your account settings</h4>
+    <h4 style="color: darkblue">Change your account settings</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>Password:</dt>
+    <dl style="color: darkblue" class="dl-horizontal">
+        <dt >Password:</dt>
         <dd>
             [
             @if (Model.HasPassword)
@@ -69,10 +69,13 @@
         *@
         <dt>Two-Factor Authentication:</dt>
         <dd>
-            <p>
-                There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+            <big><p style="color: red">
+                There are no two-factor authentication providers configured. 
+
+
+                See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">THIS ARTICLE</a>
                 for details on setting up this ASP.NET application to support two-factor authentication.
-            </p>
+            </p></big>
 
             @*@if (Model.TwoFactor)
                 {
@@ -107,3 +110,7 @@
         </dd>
     </dl>
 </div>
+<hr />
+<footer id="footer">
+    <p style="color: darkblue">&copy; @DateTime.Now.Year - Flex 07</p>
+</footer>
