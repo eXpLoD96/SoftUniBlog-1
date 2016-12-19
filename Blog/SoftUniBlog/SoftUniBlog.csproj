@@ -200,6 +200,7 @@
     <Compile Include="classes\Utils.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CardioEquipmentController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CommentBoxController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\FoodAdditivesController.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Controllers\ProfessionalEquipmentController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SemiProfessionalController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="feedback.aspx.cs">
       <DependentUpon>feedback.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,12 +226,15 @@
     <Compile Include="Migrations\Models\AccountViewModels.cs" />
     <Compile Include="Migrations\Models\ApplicationDbContext.cs" />
     <Compile Include="Migrations\Models\ApplicationUser.cs" />
+    <Compile Include="Migrations\Models\Categories.cs" />
     <Compile Include="Migrations\Models\Category.cs" />
+    <Compile Include="Migrations\Models\EditUserViewModel.cs" />
     <Compile Include="Migrations\Models\Equipment.cs" />
     <Compile Include="Migrations\Models\EquipmentType.cs" />
     <Compile Include="Migrations\Models\ManageViewModels.cs" />
     <Compile Include="Migrations\Models\Comment.cs" />
     <Compile Include="Migrations\Models\Post.cs" />
+    <Compile Include="Migrations\Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -377,6 +382,13 @@
     <Content Include="Views\ProfessionalEquipment\ByType.cshtml" />
     <Content Include="Views\SemiProfessional\ByType.cshtml" />
     <Content Include="Views\SemiProfessional\Create.cshtml" />
+    <Content Include="Views\Categories\List.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
