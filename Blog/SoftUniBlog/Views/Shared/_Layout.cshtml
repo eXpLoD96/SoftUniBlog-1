@@ -91,6 +91,7 @@
                     <li class="buttons">@Html.ActionLink("Professional Equipment", "Index", "ProfessionalEquipment")</li>
                     <li class="buttons">@Html.ActionLink("Semi-Professional Equipment", "Index", "SemiProfessional")</li>
                     <li class="buttons">@Html.ActionLink("Home Equipment", "Index", "HomeEquipment")</li>
+
                     
                                         @*</ul>
             @using (Html.BeginForm("SearchText", "Home Controller", FormMethod.Get))
@@ -108,9 +109,31 @@
                             <li>@Html.ActionLink("Forum", "Index", "Posts")</li>
                             <li>@Html.ActionLink("New Topic", "Create", "Posts")</li>
                             <li>@Html.ActionLink("Contacts", "Index", "Contacts")</li>
+                           
+                           
 
                         </ul>
                     </li>
+                    @if (User.IsInRole("Administrators"))
+                    {
+                    <li class="buttons">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                           
+                                <li>@Html.ActionLink("Users", "List", "User")</li>
+                                <li>@Html.ActionLink("Categories", "List", "Categories")</li>
+                            
+                        </ul>
+                    </li>
+                        }
+
+
+
+                    }
+                    
+
+
+                    }
 
                 </ul>
 
