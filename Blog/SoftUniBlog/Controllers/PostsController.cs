@@ -28,6 +28,7 @@ namespace SoftUniBlog.Controllers
         }
 
         // GET: Posts/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -142,6 +143,7 @@ namespace SoftUniBlog.Controllers
             return View(post);
         }
 
+        [Authorize]
         private bool IsUserAuthorized(Post post)
         {
             var context = new ApplicationDbContext();
@@ -189,5 +191,6 @@ namespace SoftUniBlog.Controllers
             }
             base.Dispose(disposing);
         }
+    
     }
 }
