@@ -143,6 +143,7 @@ namespace SoftUniBlog.Controllers
             return View(post);
         }
 
+        [Authorize]
         private bool IsUserAuthorized(Post post)
         {
             var context = new ApplicationDbContext();
@@ -150,7 +151,7 @@ namespace SoftUniBlog.Controllers
             var currentUserUsername = User.Identity.Name;
             if (currentUserUsername == null)
             {
-                RedirectToAction("LoginViewModel");
+                RedirectToAction("Login");
             }
             var currentUser = context.Users.First(a => a.Email == currentUserUsername);
 
