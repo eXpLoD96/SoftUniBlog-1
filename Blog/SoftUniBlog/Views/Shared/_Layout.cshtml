@@ -28,6 +28,7 @@
             border-radius: 10px;
             box-shadow: 0 0px #999;
         }
+
         .buttonss {
             padding: 0.8px 0.8px;
             font-size: 18px;
@@ -63,8 +64,10 @@
             /*box-shadow: 0 5px #666;*/
             transform: translateY(4px);
         }
-   </style>
+    </style>
+
 </head>
+
 <body>
     <div class="se-pre-con"></div>
     <div class="button navbar-inverse navbar-fixed-top" style="background-color: black">
@@ -75,16 +78,35 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
             </div>
             <div class="navbar-collapse collapse">
 
                 <ul class="nav navbar-nav">
                     <li>
+
+
                     </li>
+
+                    @*<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipment <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">*@
                     <li class="buttonss"> @Html.ActionLink("Fitness Equipment", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </li>
-                    <li class="buttons">@Html.ActionLink("Professional Equipment", "Index", "ProfessionalEquipment")</li>
-                    <li class="buttons">@Html.ActionLink("Semi-Professional Equipment", "Index", "SemiProfessional")</li>
-                    <li class="buttons">@Html.ActionLink("Home Equipment", "Index", "HomeEquipment")</li>
+                    <li class="buttons">@Html.ActionLink("Professional Equipment", "Index", "Equipment", new { category = "Professional"}, null)</li>
+                    <li class="buttons">@Html.ActionLink("Semi-Professional Equipment", "Index", "Equipment", new { category = "SemiProfessional" }, null)</li>
+                    <li class="buttons">@Html.ActionLink("Home Equipment", "Index", "Equipment", new { category = "Home" }, null)</li>
+
+
+                    @*</ul>
+                            @using (Html.BeginForm("SearchText", "Home Controller", FormMethod.Get))
+                        {
+                            @Html.TextBoxFor(m => m.Query)
+
+                            <div>
+                                <input type="submit" value="Search" />
+                            </div>
+                        }
+                            </li>*@
                     <li class="buttons">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contact us <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -107,12 +129,17 @@
 
                                 <li>@Html.ActionLink("Users", "List", "User")</li>
                                 <li>@Html.ActionLink("Categories", "List", "Categories")</li>
+
                             </ul>
+                            
+
                         </li>
                     }
                 </ul>
-               @Html.Partial("_LoginPartial")
-           </div>
+
+                @Html.Partial("_LoginPartial")
+
+            </div>
         </div>
     </div>
     <div class="container body-content">
