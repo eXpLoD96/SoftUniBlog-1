@@ -83,7 +83,7 @@ namespace SoftUniBlog.Controllers
         }
 
         [HttpPost]
-        private ActionResult ChangeImage(string test)
+        public ActionResult ChangeImage(string test)
         {
             byte[] imageData = null;
             if (Request.Files.Count > 0)
