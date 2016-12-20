@@ -336,10 +336,12 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\EquipmentTypes\Bench Rack.png" />
+    <Content Include="Images\EquipmentTypes\equipmentType.jpg" />
     <Content Include="Images\EquipmentTypes\Olympic Bench Press.png" />
     <Content Include="Images\EquipmentTypes\Professional  Gladiator.png" />
     <Content Include="Images\EquipmentTypes\Professional  Squat Stand.png" />
     <Content Include="Images\EquipmentTypes\Professional Dumbbells.png" />
+    <Content Include="Images\EquipmentTypes\Semi-Professional Dumbbells.png" />
     <Content Include="Images\Equipment\Professional\Cardio\Professional Cardio Bike.png" />
     <Content Include="Images\EquipmentTypes\Club-Series-Treadmill-l.png" />
     <Content Include="Images\EquipmentTypes\Complex Dummbells.png" />
