@@ -143,6 +143,7 @@ namespace SoftUniBlog.Controllers
             return View(post);
         }
 
+        [Authorize]
         private bool IsUserAuthorized(Post post)
         {
             var context = new ApplicationDbContext();

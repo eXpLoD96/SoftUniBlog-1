@@ -25,6 +25,7 @@ namespace SoftUniBlog.Controllers
         // GET: Admin/Details/5
         
         [Authorize]
+
         public ActionResult Details(int? id)
         {
             if (id == null)
