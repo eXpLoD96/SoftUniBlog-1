@@ -28,6 +28,7 @@ namespace SoftUniBlog.Controllers
         }
 
         // GET: Posts/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -149,7 +150,7 @@ namespace SoftUniBlog.Controllers
             var currentUserUsername = User.Identity.Name;
             if (currentUserUsername == null)
             {
-                RedirectToAction("Login");
+                RedirectToAction("LoginViewModel");
             }
             var currentUser = context.Users.First(a => a.Email == currentUserUsername);
 

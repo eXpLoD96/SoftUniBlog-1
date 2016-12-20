@@ -77,13 +77,13 @@ namespace SoftUniBlog.Controllers
             return View(model);
         }
 
-        public ActionResult ChangeImage()
+        private ActionResult ChangeImage()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult ChangeImage(string test)
+        private ActionResult ChangeImage(string test)
         {
             byte[] imageData = null;
             if (Request.Files.Count > 0)
