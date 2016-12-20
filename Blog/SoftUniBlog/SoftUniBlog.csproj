@@ -336,6 +336,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\EquipmentTypes\Bench Rack.png" />
+    <Content Include="Images\EquipmentTypes\Champio-Series-Solid-Urethane-Dumbbells.png" />
     <Content Include="Images\EquipmentTypes\equipmentType.jpg" />
     <Content Include="Images\EquipmentTypes\Olympic Bench Press.png" />
     <Content Include="Images\EquipmentTypes\Professional  Gladiator.png" />
