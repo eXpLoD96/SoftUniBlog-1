@@ -24,7 +24,7 @@
 <table class="table">
     <tr style="color:rebeccapurple">
         <th>
-            Title 
+            Title
         </th>
         <th>
             Content
@@ -52,7 +52,7 @@
             <td>
                 @Html.DisplayFor(modelItem => post.Date)
             </td>
-           
+
             <td>
                 @if (post.Author != null)
                 {
@@ -64,26 +64,26 @@
             }
             </td>
             <td>
+
                 @if (User.IsInRole("Administrators") || ViewBag.CurrentUserEmail == post.Author.Email)
                 {
                     <div>
                         @Html.ActionLink("Details", "Details", new { id = post.ID })
                     </div>
-                     <div>
+                    <div>
                         @Html.ActionLink("Edit", "Edit", new { id = post.ID })
-                    </div>                 
+                    </div>
                     <div>
                         @Html.ActionLink("Delete", "Delete", new { id = post.ID })
                     </div>
-                   
+
                 }
+
                 else
                 {
-                   <div> 
-                         @Html.ActionLink("Details", "Details", new { id = post.ID }) 
-                   </div>
-
-                  
+                    <div>
+                        @Html.ActionLink("Details", "Details", new { id = post.ID })
+                    </div>
                 }
 
 
