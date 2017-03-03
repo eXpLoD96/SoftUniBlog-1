@@ -4,14 +4,29 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<head>
+    <title>Details</title>
+</head>
+
+<style>
+    body {
+        background-image: url('http://www.pixelstalk.net/wp-content/uploads/2016/06/HD-Wallpapers-Gif-Download.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 100%;
+    }
+</style>
+
+
+
+
 
 <div>
-    <h4>Post</h4>
+    <h2 style="color:rebeccapurple">Post</h2>
     <hr />
-    <dl class="dl-horizontal">
+    <dl style="color:rebeccapurple"class="dl-horizontal">
         <dt>
-            Заглавие
+            Title
         </dt>
 
         <dd>
@@ -19,11 +34,11 @@
         </dd>
 
         <dt>
-            Тяло
+            Body
         </dt>
 
         <dd>
-            <textarea class="form-control text-box multi-line" disabled="disabled" rows="20">@Model.Body)</textarea>
+            <textarea class="form-control text-box multi-line" disabled="disabled" rows="20">@Model.Body) </textarea>
 
         </dd>
 
@@ -36,19 +51,36 @@
         </dd>
 
     </dl>
-    @for (int i = 0; i < Model.Comments.Count; i++)
-    {
-        <h1>@Model.Comments[i].Name</h1>
-    }
-    <form action="/comment/create" method="post">
-        <input type="text" name="name" class="form-control" />
-        <input type="submit" />
-    </form>
+    <div style="color:rebeccapurple" id="disqus_thread"></div>
+    <script style="color:rebeccapurple">
+
+
+    var disqus_config = function () {
+        var disqus_developer = 1;
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//flex07-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </div>
-<p>
+
+
+<p style="color:rebeccapurple">
     @if (ViewBag.IsUserAuthorized)
     {
        @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
     }
     @Html.ActionLink("Back to List", "Index")
 </p>
+<hr />
+<footer id="footer">
+    <p style="color:rebeccapurple"> &copy; @DateTime.Now.Year - Flex 07</p>
+</footer>

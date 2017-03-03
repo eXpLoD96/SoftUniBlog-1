@@ -1,65 +1,164 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <script type="text/javascript" src="~/Scripts/snowstorm.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Flex 07</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
+    <script type='text/javascript' src='loadImg.js'></script>
+    <script type='text/javascript'>
+        $(function () {
+            $('img').imgPreload()
+        })
+    </script>
+
+    <style>
+        .button {
+            padding: 1px 1px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #620a0a;
+            background-color: #620a0a;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0px #999;
+        }
+
+        .buttonss {
+            padding: 0.8px 0.8px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #000000;
+            background-color: #000000;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0px #999;
+        }
+
+        .buttons {
+            padding: 0.8px 0.8px;
+            font-size: 16.5px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #620a0a;
+            background-color: #000000;
+            border: none;
+            border-radius: 9px;
+            box-shadow: 0 2px #999;
+        }
+
+        .button:hover {
+            background-color: #051838;
+        }
+
+        .buttons:active {
+            background-color: #051838;
+            /*box-shadow: 0 5px #666;*/
+            transform: translateY(4px);
+        }
+    </style>
 
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="se-pre-con"></div>
+    <div class="button navbar-inverse navbar-fixed-top" style="background-color: black">
         <div class="container-fluid">
-            <div class="navbar-header">
+            <div class="navbar-inner">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Fitness Equipment", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
             <div class="navbar-collapse collapse">
 
                 <ul class="nav navbar-nav">
                     <li>
-                        <img src="@Url.Action("UserPhotos", "Home" )" height="48" width="48" />
+
 
                     </li>
 
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @*<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipment <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">*@
-                            <li>@Html.ActionLink("Professional Equipment", "Index", "ProfessionalEquipment")</li>
-                            <li>@Html.ActionLink("Semi-Professional Equipment", "Index", "SemiProfessional")</li>
-                            <li>@Html.ActionLink("Cardio Equipment", "Index", "CardioEquipment")</li>
-                            <li>@Html.ActionLink("Home Equipment", "Index", "HomeEquipment")</li>
-                        @*</ul>
-                    </li>*@
-                    <li class="dropdown">
+                    <li class="buttonss"> @Html.ActionLink("Fitness Equipment", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </li>
+                    <li class="buttons">@Html.ActionLink("Professional Equipment", "Index", "Equipment", new { category = "Professional"}, null)</li>
+                    <li class="buttons">@Html.ActionLink("Semi-Professional Equipment", "Index", "Equipment", new { category = "SemiProfessional" }, null)</li>
+                    <li class="buttons">@Html.ActionLink("Home Equipment", "Index", "Equipment", new { category = "Home" }, null)</li>
+
+
+                    @*</ul>
+                            @using (Html.BeginForm("SearchText", "Home Controller", FormMethod.Get))
+                        {
+                            @Html.TextBoxFor(m => m.Query)
+
+                            <div>
+                                <input type="submit" value="Search" />
+                            </div>
+                        }
+                            </li>*@
+                    <li class="buttons">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contact us <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>@Html.ActionLink("Forum", "Index", "Posts")</li>
                             <li>@Html.ActionLink("New Topic", "Create", "Posts")</li>
                             <li>@Html.ActionLink("Contacts", "Index", "Contacts")</li>
+
                         </ul>
+                        @if (User.IsInRole("Administrators"))
+                        {
+                        <li class="buttons">@Html.ActionLink("Equipment", "Index", "Admin")</li>
+
+                        }
                     </li>
+                    @if (User.IsInRole("Administrators"))
+                    {
+                        <li class="buttons">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+
+                                <li>@Html.ActionLink("Users", "List", "User")</li>
+                                <li>@Html.ActionLink("Categories", "List", "Categories")</li>
+
+                            </ul>
+                            
+
+                        </li>
+                    }
                 </ul>
+
                 @Html.Partial("_LoginPartial")
+
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Flex 07</p>
-        </footer>
+        @*<hr />
+            <footer id="footer">
+                <p>&copy; @DateTime.Now.Year - Flex 07</p>
+            </footer>*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript" src="http://scmplayer.net/script.js"
+            data-config="{'skin':'skins/black/skin.css','volume':30,'autoplay':false,'shuffle':false,'repeat':1,'placement':'top','showplaylist':false,'playlist':[{'title':'','url':'https://www.youtube.com/watch?v=eZskc6Aa6mE'},{'title':'','url':'https://www.youtube.com/watch?v=gf0NcUfvoZY'},{'title':'','url':'https://www.youtube.com/watch?v=wBjHPqMz0q0'}]}"></script>
+
+
 </body>
+
+
 </html>

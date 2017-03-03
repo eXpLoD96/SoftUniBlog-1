@@ -1,0 +1,33 @@
+﻿html, body {
+    height:100%;
+    margin: auto;
+}
+body{
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    position:relative;
+}
+.video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: -20;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+.maintext {
+position: fixed;
+left: 25%;
+top: 50%;
+color: #CCC;
+z-index: 100;
+font-size: 90px;
+font-family: "Trebuchet MS", Arial;
+font-variant: small-caps;
+font-weight: normal;
+}
+

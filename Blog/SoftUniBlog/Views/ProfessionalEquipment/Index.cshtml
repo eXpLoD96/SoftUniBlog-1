@@ -5,20 +5,34 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+ <title>Motivation</title>
+</head>
+<h1 style="color:rebeccapurple">Professional Equiptment</h1>
+<hr />
+<style>
+body {
+    background-image: url('http://www.careandliving.com/wp-content/uploads/2016/08/muscular-guy-six-pack-HD.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
 
-<h2>Index</h2>
+ </style>
+@using SoftUniBlog.Models
+@{
+    List<EquipmentType> equipmentTypes = ViewBag.EquipmentTypes;
+}
+@foreach (var equipmentType in equipmentTypes)
+{
+    var type = equipmentType.Name;
+    <li><a href="ProfessionalEquipment/ByType/@type"><img src="@equipmentType.ImagePath" width="300" height="300" /><span>@equipmentType.Name</span></a></li>
+}
+<footer id="footer">
+    <hr />
+    <p style="color:rebeccapurple"> &copy; @DateTime.Now.Year - Flex 07</p>
+</footer>
 
-<p>Proffesional Equipment View!</p>
-<ul class="icons">
-    <li><a href="#"><img src="~/Images/Profesional 1.png.png" width="300" height="200" /><span>Professional Cups Machine</span></a></li>
-    <li><a href="#"><img src="~/Images/Professinal Bench Press.png" width="300" height="200" /><span>Professinal Bench Press</span></a></li>
-    <li><a href="#"><img src="~/Images/Professional  Gladiator.png" width="300" height="200" /><span>Professional  Gladiator</span></a></li>
-    <li><a href="#"><img src="~/Images/Professional  Squat Stand.png" width="300" height="200" /><span>Professional  Squat Stand</span></a></li>
-    <li><a href="#"><img src="~/Images/Professional Cardio Bike.png" width="300" height="200" /><span>Professional Cardio Bike</span></a></li>
-    <li><a href="#"><img src="~/Images/Professional Crossover.png" width="300" height="200" /><span>Professional Crossover</span></a></li>
-    <li><a href="#"><img src="~/Images/Professional Leg Press.png" width="300" height="200" /><span>Professional Leg Press</span></a></li>
-    <li><a href="#"><img src="~/Images/Professional Scott Bench.png" width="300" height="200" /><span>Professional Scott Bench</span></a></li>
-    <li><a href="#"><img src="~/Images/Professional Smith Machine.png" width="300" height="200" /><span>Professional Smith Machine</span></a></li>
-</ul>
+
 
 

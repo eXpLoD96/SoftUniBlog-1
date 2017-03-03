@@ -4,14 +4,26 @@
 @{
     ViewBag.Title = "Forum";
 }
+<head>
+    <title>Motivation</title>
+</head>
+<style>
+    body {
+        background-image: url('http://www.pixelstalk.net/wp-content/uploads/2016/06/HD-Wallpapers-Gif-Download.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 100%;
 
-<h2>Forum</h2>
+    }
+</style>
+
+<h2 style="color:rebeccapurple">Forum</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    <tr style="color:rebeccapurple">
         <th>
             Title
         </th>
@@ -31,7 +43,7 @@
 
     @foreach (var post in Model)
     {
-        <tr>
+        <tr style="color:white">
             <td>
                 @Html.DisplayFor(modelItem => post.Title)
             </td>
@@ -41,6 +53,7 @@
             <td>
                 @Html.DisplayFor(modelItem => post.Date)
             </td>
+
             <td>
                 @if (post.Author != null)
                 {
@@ -52,26 +65,37 @@
             }
             </td>
             <td>
+
                 @if (User.IsInRole("Administrators") || ViewBag.CurrentUserEmail == post.Author.Email)
                 {
                     <div>
                         @Html.ActionLink("Details", "Details", new { id = post.ID })
                     </div>
-                     <div>
+                    <div>
                         @Html.ActionLink("Edit", "Edit", new { id = post.ID })
-                    </div>                 
+                    </div>
                     <div>
                         @Html.ActionLink("Delete", "Delete", new { id = post.ID })
                     </div>
+
                 }
+
                 else
                 {
-                    @Html.ActionLink("Details", "Details", new { id = post.ID })
+                    <div>
+                        @Html.ActionLink("Details", "Details", new { id = post.ID })
+                  </div>
+
                 }
 
 
             </td>
         </tr>
+
     }
 
 </table>
+<hr />
+<footer id="footer">
+    <p style="color:rebeccapurple"> &copy; @DateTime.Now.Year - Flex 07</p>
+</footer>

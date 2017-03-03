@@ -28,11 +28,12 @@ namespace SoftUniBlog.Controllers
         }
 
         // GET: Posts/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             Post post = db.Posts.Find(id);
             if (post == null)
@@ -44,6 +45,7 @@ namespace SoftUniBlog.Controllers
 
             return View(post);
         }
+    
         
         // GET: Posts/Create
         [Authorize]
@@ -141,11 +143,16 @@ namespace SoftUniBlog.Controllers
             return View(post);
         }
 
+        [Authorize]
         private bool IsUserAuthorized(Post post)
         {
             var context = new ApplicationDbContext();
 
             var currentUserUsername = User.Identity.Name;
+            if (currentUserUsername == null)
+            {
+                RedirectToAction("Login");
+            }
             var currentUser = context.Users.First(a => a.Email == currentUserUsername);
 
             bool isAuthorized;
@@ -184,5 +191,6 @@ namespace SoftUniBlog.Controllers
             }
             base.Dispose(disposing);
         }
+    
     }
 }

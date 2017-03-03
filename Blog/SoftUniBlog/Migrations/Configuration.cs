@@ -5,7 +5,11 @@ namespace SoftUniBlog.Migrations
     using SoftUniBlog.Models;
     using System;
     using System.Data.Entity.Migrations;
+    using System.IO;
     using System.Linq;
+    using System.Reflection;
+    using System.Web;
+    using System.Web.Hosting;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
@@ -30,73 +34,125 @@ namespace SoftUniBlog.Migrations
                 AddUserToRole(context, "admin@gmail.com", "Administrators");
 
                 CreatePost(context,
-                    title: "Work Begins on HTML5.1",
-                    body: @"<p>The World Wide Web Consortium (W3C) has begun work on <b>HTML5.1</b>, and this time it is handling the creation of the standard a little differently. The specification has its <b><a href=""https://w3c.github.io/html/"">own GitHub project</a></b> where anyone can see what is happening and propose changes.</p>
-                    <p>The organization says the goal for the new specification is ""to <b>match reality better</b>, to make the specification as clear as possible to readers, and of course to make it possible for all stakeholders to propose improvements, and understand what makes changes to HTML successful.""</p>
-                    <p>Creating HTML5 took years, but W3C hopes using GitHub will speed up the process this time around. It plans to release a candidate recommendation for HTML5.1 by <b>June</b> and a full recommendation in <b>September</b>.</p>",
+                    title: "Size vs. Strength",
+                    body: @"A ton of factors influence strength beyond muscle size and skill with the movements used to test strength.  The strength of individual muscle fibers, normalized muscle force, muscle moment arms, and body proportions can all have significant, independent effects on strength.
+Just as there’s massive variability in muscle growth – some people gaining a ton of muscle in response to training, and other people gaining very little – there’s massive variability in strength gains as well.  Normalized muscle force (how strong a muscle is relative to how large it is) can increase up to 39% for some people and decrease by as much as 5% for others, in response to the exact same training program.
+Early on in training, there’s a very weak relationship between gains in muscle and gains in strength.  Gains in muscle mass may explain as little as 2% of the variation in strength gains for new lifters.
+For more experienced lifters, gains in muscle mass may explain up to 65%+ of the variability in strength gains, highlighting hypertrophy as a key factor for strength gains in trained lifters.
+Training style has a big impact on the ratio of strength you gain relative to size, with heavier training generally producing larger gains in strength.
+",
                     date: new DateTime(2016, 03, 27, 17, 53, 48),
                     authorUsername: "merry@gmail.com"
                 );
 
                 CreatePost(context,
-                    title: "Windows 10 Preview with Bash Support Now Available",
-                    body: @"<p>Microsoft has released a new <b>Windows 10 Insider Preview</b> that includes native support for <b>Bash running on Ubuntu Linux</b>. The company first announced the new feature at last week''s Build development conference, and it was one of the biggest stories of the event. The current process for installing Bash is a little complication, but Microsoft has a blog post that explains how the process works.</p>
-                    <p>The preview build also includes <b>Cortana</b> upgrades, extensions support, the new <b>Skype</b> Universal Windows Platform app and some interface improvements.</p>",
+                    title: "How to Squat",
+                    body: @"Are your feet stable, or do they move? (It’s not uncommon for people to start with their feet pointed too far forward, and for them to rotate out a bit during the initial descent; if the bottom of your shoes are too grippy for this to happen, then you may see the lateral part of the heel of your shoe raise a bit.)
+Is your weight shifting excessively forward or backward?  Do your heels rise off the ground, or could you lift your toes up off the ground if you wanted to?
+Does your spine flex at any point in the movement? (Lumbar is more common than thoracic; also note whether lumbar flexion actually occurs at the bottom of the squat, or whether your spine starts in hyperextension, and then just moves back toward neutral.)
+",
                     date: new DateTime(2016, 05, 11, 08, 22, 03),
                     authorUsername: "merry@gmail.com"
                 );
                 CreatePost(context,
-                    title: "Atom Text Editor Gets New Windows Features",
-                    body: @"<p>GitHub has released <b>Atom 1.7</b>, and the updated version of the text editor offers improvements for Windows developers. Specifically, it is now easier to build in Visual Studio, and it now supports the Appveyor CI continuous integration service for Windows.</p>
-                    <p>Other new features include improved tab switching, tree view and crash recovery. GitHub noted, ""Crashes are nobody''s idea of fun, but in case Atom does crash on you, it periodically saves your editor state. After relaunching Atom after a crash, you should find all your work saved and ready to go.""</p>
-                    <p>GitHub has also released a beta preview of Atom 1.8.</p>",
+                    title: "Training Volume",
+                    body: @"Studies across a variety of populations have demonstrated that muscles grow in a very broad variety of rep ranges. When training protocols are matched for number of sets, even with very different training volumes, they generally result in similar levels of muscle growth.
+in strength and muscular endurance are still very much tied to the rep range used. At least when talking about hypertrophy-based training, it’s more useful to think of “training volume” as “total number of hard sets per muscle” than “sets x reps x load.”
+Mr. Universe bodybuilding",
                     date: new DateTime(2016, 03, 27, 17, 53, 48),
                     authorUsername: "merry@gmail.com"
                 );
 
                 CreatePost(context,
-                    title: "SoftUni 3.0 Just Launched",
-                    body: @"<p>The <b>Software University (SoftUni)</b> launched a new training methodology and training program for software engineers in Sofia.</p>
-                    <p>It is a big step ahead. Now SoftUni offers several professions:</p>
-                    <ul>
-                      <li>PHP Developer</li>
-                      <li>JavaScript Developer</li>
-                      <li>C# Web Developer</li>
-                      <li>Java Web Developer</li>
-                    </ul>",
+                    title: "Amount Of Weight You Lift",
+                    body: @"Comfortably lifting a weight that was once out of reach shows you how your body can adapt to overloads you place upon it. But reaching the next level of strength and size requires you to continue increasing the demands on your body, a concept known as progressive overload, which is a basic tenet of resistance training.",
                     date: new DateTime(2016, 02, 18, 22, 14, 38),
                     authorUsername: "pesho@gmail.com"
                 );
 
                 CreatePost(context,
-                    title: "Git 2.8 Adds Security and Productivity Features",
-                    body: @"<p>Version 2.8 of the open-source distributed version-control system Git has been released. The new edition provides a variety of new features, bugfixes and other improvements.</p>
-                    <p>According to GitHub, the most notable new features include:</p>
-                    <ul>
-                    <li><strong>Parallel fetches of submodules:</strong> “Using ‘git submodules,’ one Git repository can include other Git repositories as subdirectories. This can be a useful way to include libraries or other external dependencies into your main project. The top-level repository specifies which submodules it wants to include, and which version of each submodule,” wrote Jeff King, a Git team member, in a <a href=""https://github.com/blog/2131-git-2-8-has-been-released"">blog post</a>. According to him, if users have multiple submodules, fetches can be time-consuming. The latest release allows users to fetch from multiple submodules in parallel.</li>
-                    <li><strong>Don’t guess my identity: </strong>Instead of using one e-mail address for all of a user’s open-source projects, they can now tell Git what user name and e-mail they want to use before they commit.</li>
-                    <li><strong>Convergences with Git for Windows:</strong> The Git team has been working on making Git as easy to work with on Windows as it is on Linux and OS X. The latest release includes Git commands rewritten in C; Windows-specific changes from the Git for Windows project; and the ability to accept both LF and CRLF line endings. “This continuing effort will make it easier to keep the functionality of Git in sync across platforms as new features are added,” King wrote.</li>
-                    <li><strong>Security fixes: </strong>Git 2.8 addresses the vulnerability CVE-2016-2324. There have not been any reported exploits, but the vulnerability could execute arbitrary code when cloning a malicious repository, according to King.</li>
-                    </ul>
-                    <p>Other features include the ability to turn off Git’s clean and smudge filters; the ability to see where a particular setting came from; the ability to easily diagnose end-of-line problems; the ability to see a remote repository’s default branch; and support for cloning via the rsync protocol has been dropped.</p>
-                    <p>The full release notes are available <a href=""https://github.com/git/git/blob/v2.8.0/Documentation/RelNotes/2.8.0.txt"">here</a>.</p>",
+                    title: "How Military Troops Stay Jacked Around The World!",
+                    body: @"Today's servicemen and servicewomen are subject to deployments that may last as long as nine months. For some, this time is spent aboard a large military vessel out in the middle of the ocean or in a remote hole-in-the wall camp far from the creature comforts most of us take for granted.
+
+But what they all share with one another is an expectation that simply being healthy isn't enough. Troops must maintain peak mental and physical readiness at all times. Lives literally depend on it.
+
+For anyone who loves to challenge themselves in the gym or with physique-based goals, the demands are even tougher. This is how some of our country's bravest men and women get jacked no matter where the service takes them!
+
+",
                     date: new DateTime(2016, 04, 11, 19, 02, 05),
                     authorUsername: "geshu@gmail.com"
                 );
 
                 CreatePost(context,
-                    title: "Rogue Wave Updates Zend Framework",
-body: @"<p>Rogue Wave is updating its open-source framework for developing Web applications and services. According to the company, this is the first major release in four years. Zend Framework 3 features support for PHP 7, middleware runtime and performance enhancements.</p>
-                    <p>The newly released support for PHP 7 aims to simplify how developers create, debug, monitor and deploy modern Web and mobile apps in PHP 7. “This is an exciting time to be a PHP developer,” said Zeev Suraski, cofounder of Zend and CTO of Rogue Wave. “With Zend Framework 3, we’re continuing our quest to make creating PHP applications simpler, more accessible and faster.”</p>
-                    <p>In addition, version 3 of the framework features an architectural structure that allows developers to use components within Zend Framework apps or any other framework in order to reduce dependencies, and to enable reuse within the PHP ecosystem.</p>
-                    <p>Another key update to the solution is a new middleware runtime. Expressive is designed to focus on simplicity and interoperability, and it enables developers to customize their solutions.</p>
-                    <p>“I’m extremely proud of the work we’ve done with Expressive,” said Matthew Weier O’Phinney, principal engineer and Zend Framework project lead at Rogue Wave. “Expressive signals the future of PHP applications, composed of layered, single-purpose PSR-7 middleware.”</p>",
+                    title: "Training Based On Muscle Fiber Type",
+body: @"Most muscles in your body have a fairly even split of fast-twitch and slow-twitch muscle fibers; very few muscles are (on average) incredibly fast-twitch or slow-twitch dominant.
+There’s not a practical test to know whether a particular muscle is composed primarily of fast-twitch or slow-twitch fibers.  The methods you’d typically use in a gym setting (seeing how many reps you’d get with a particular percentage of your 1rm) have virtually no predictive power.
+The idea that you should train muscles differently based on their predominant muscle fiber type comes from the notion that fast-twitch muscle fibers respond best to heavy weights and low reps, and that slow-twitch muscle fibers respond best to light weights and high reps.  Evidence is still very mixed on this point – it’s not yet clear that particular training styles specifically target fast-twitch or slow-twitch fibers in the first place.
+Even if there was good evidence for fiber type specific hypertrophy, and even if there was a good, practical test to know a muscle’s fiber type breakdown, it still wouldn’t change the general recommendation to keep training that muscle with a variety of rep ranges.
+",
                     date: new DateTime(2016, 06, 30, 17, 36, 52),
                     authorUsername: "merry@gmail.com"
                 );
 
+                foreach (var categoryPath in Directory.GetDirectories(MapPath(@"~\Images\Equipment")))
+                {
+                    var category = categoryPath.Substring(categoryPath.LastIndexOf('\\') + 1);
+
+                    foreach (var typePath in Directory.GetDirectories(categoryPath))
+                    {
+                        var type = typePath.Substring(typePath.LastIndexOf('\\') + 1);
+
+                        var typeEntity = context.EquipmentTypes.FirstOrDefault(a => a.Name == type);
+                        if (typeEntity == null)
+                        {
+                            var equipmentTypeName = type;
+
+                            var imagePath = $@"/Images/Types/{type}.png";
+
+                            AddEquipmentType(context, type, imagePath);
+                        }
+
+
+                        foreach (var equipmentFilename in Directory.GetFiles(typePath))
+                        {
+                            var name = Path.GetFileNameWithoutExtension(equipmentFilename);
+                            var extension = Path.GetExtension(equipmentFilename);
+                            var imagePath = $@"/Images/Equipment/{category}/{type}/{name}{extension}";
+
+                            AddEquipment(context, name, imagePath, category, type);
+                        }
+                    }
+                }
+
                 context.SaveChanges();
             }
+        }
+
+        private void AddEquipment(ApplicationDbContext context, string name, string imagePath, string category, string type)
+        {
+            var equipmentType = context.EquipmentTypes.First(a => a.Name == type);
+
+            var equipment = new Equipment()
+            {
+                Name = name,
+                ImagePath = imagePath,
+                Type = equipmentType,
+                Category = (Category)Enum.Parse(typeof(Category), category)
+            };
+
+            context.Equipments.Add(equipment);
+        }
+
+        private void AddEquipmentType(ApplicationDbContext context, string name, string imagePath)
+        {
+            var equipmentType = new EquipmentType()
+            {
+                Name = name,
+                ImagePath = imagePath
+            };
+
+            context.EquipmentTypes.Add(equipmentType);
+            context.SaveChanges();
         }
 
         private void CreateUser(ApplicationDbContext context,
@@ -160,6 +216,19 @@ body: @"<p>Rogue Wave is updating its open-source framework for developing Web a
             post.Author = context.Users.Where(u => u.UserName == authorUsername).FirstOrDefault();
             context.Posts.Add(post);
         }
+        private string MapPath(string seedFile)
+        {
+            if (HttpContext.Current != null)
+                return HostingEnvironment.MapPath(seedFile);
+
+            var absolutePath = new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath;
+            var directoryName = Path.GetDirectoryName(absolutePath);
+            var path = Path.Combine(directoryName, ".." + seedFile.TrimStart('~').Replace('/', '\\'));
+
+            return path;
+        }
     }
+
+
 }
 

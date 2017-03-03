@@ -2,9 +2,6 @@
 using Microsoft.AspNet.Identity.Owin;
 using SoftUniBlog.Models;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -21,7 +18,13 @@ namespace shanuMVCProfileImage.Controllers
 
         public ActionResult ProffesionalEqipment()
         {
-            return View("ProffesionalEqipment");
+            var context = new ApplicationDbContext();
+
+            var equipmentTypes = context.EquipmentTypes.ToList();
+
+            ViewBag.EquipmentTypes = equipmentTypes;
+
+            return View("ProffesionalEquipment");
         }
 
 
@@ -64,6 +67,17 @@ namespace shanuMVCProfileImage.Controllers
                 return File(imageData, "image/png");
 
             }
+        }
+        public ActionResult SearchText(string text)
+        {
+            var context = new ApplicationDbContext();
+
+            var equipments = context.Equipments.Where(a => a.Name == text).ToList();
+
+            ViewBag.Equipments = equipments;
+            ViewBag.text = text;
+
+            return View();
         }
 
     }

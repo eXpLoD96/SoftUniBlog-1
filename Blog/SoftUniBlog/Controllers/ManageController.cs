@@ -14,7 +14,7 @@ namespace SoftUniBlog.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-
+        
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -77,7 +77,7 @@ namespace SoftUniBlog.Controllers
             return View(model);
         }
 
-        public ActionResult ChangeImage()
+        private ActionResult ChangeImage()
         {
             return View();
         }

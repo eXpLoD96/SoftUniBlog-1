@@ -1,0 +1,15 @@
+﻿@model SoftUniBlog.Models.Post
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+}
+
+<div>
+    @Html.ActionLink("Back to Forum", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

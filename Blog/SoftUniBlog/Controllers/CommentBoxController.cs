@@ -16,7 +16,7 @@ namespace SoftUniBlog.Controllers
             return View();
         }
 
-        public ActionResult Create([Bind(Include = "Name,Content,Email")] Comment comment, int postId)
+        public ActionResult Create([Bind(Include = "Name,Content,Email")] Comment comment, int po1stId)
         {
             //Post post = db.Posts.Find(postId);
             //if (post == null)
